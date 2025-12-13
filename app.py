@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import os
+from pathlib import Path
 import json
 import csv
 import requests
@@ -8,10 +9,12 @@ from encryption import MultiSubstitutionCipher
 from model_logic import RecruitmentAI
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
-
+BASE_DIR = Path(__file__).resolve().parent
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
-CSV_PATH = os.path.join(DATA_DIR, 'new_candidates.csv')
+# CSV_PATH = os.path.join(DATA_DIR, 'new_candidates.csv')
+DATA_FILE_PATH = BASE_DIR / 'data' / 'new_candidates.csv'
+CSV_PATH = str(DATA_FILE_PATH)
 JSON_DB_PATH = os.path.join(DATA_DIR, 'database.json')
 DATA_DIR = 'data'
 ENC_DB_PATH = os.path.join(DATA_DIR, 'encrypted_database.txt')
@@ -169,4 +172,5 @@ def submit():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
 
