@@ -13,6 +13,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 CSV_PATH = os.path.join(DATA_DIR, 'new_candidates.csv')
 JSON_DB_PATH = os.path.join(DATA_DIR, 'database.json')
+DATA_DIR = 'data'
 ENC_DB_PATH = os.path.join(DATA_DIR, 'encrypted_database.txt')
 GITHUB_CSV_URL = "https://raw.githubusercontent.com/allmore0/min_sesgos/main/candidatos.csv"
 
@@ -168,3 +169,4 @@ def submit():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
