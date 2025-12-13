@@ -15,7 +15,7 @@ DATA_DIR_PATH = BASE_DIR / 'data'
 
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 DATA_FILE_PATH = DATA_DIR_PATH / 'new_candidatos.csv' 
-CSV_PATH = str(DATA_FILE_PATH) # La variable final que usas para abrir archivos
+CSV_PATH = str(DATA_FILE_PATH) # La variable final se usa para abrir los archivos
 JSON_DB_PATH = DATA_DIR_PATH / 'database.json'
 ENC_DB_PATH = DATA_DIR_PATH / 'encrypted_database.txt'
 GITHUB_CSV_URL = "https://raw.githubusercontent.com/allmore0/min_sesgos/main/candidatos.csv"
@@ -172,6 +172,7 @@ def submit():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
 
 
 
