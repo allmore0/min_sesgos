@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib
-matplotlib.use('Agg') # Use non-interactive backend for server
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import requests
@@ -282,3 +282,4 @@ class RecruitmentAI:
                 "rank": current_rank
             }
         }
+
