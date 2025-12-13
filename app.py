@@ -9,15 +9,15 @@ from encryption import MultiSubstitutionCipher
 from model_logic import RecruitmentAI
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
+
 BASE_DIR = Path(__file__).resolve().parent
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR_PATH = BASE_DIR / 'data'
+
 DATA_DIR = os.path.join(BASE_DIR, 'data')
-# CSV_PATH = os.path.join(DATA_DIR, 'new_candidates.csv')
-DATA_FILE_PATH = BASE_DIR / 'data' / 'new_candidates.csv'
-CSV_PATH = str(DATA_FILE_PATH)
-JSON_DB_PATH = os.path.join(DATA_DIR, 'database.json')
-DATA_DIR = 'data'
-ENC_DB_PATH = os.path.join(DATA_DIR, 'encrypted_database.txt')
+DATA_FILE_PATH = DATA_DIR_PATH / 'new_candidates.csv' 
+CSV_PATH = str(DATA_FILE_PATH) # La variable final que usas para abrir archivos
+JSON_DB_PATH = DATA_DIR_PATH / 'database.json'
+ENC_DB_PATH = DATA_DIR_PATH / 'encrypted_database.txt'
 GITHUB_CSV_URL = "https://raw.githubusercontent.com/allmore0/min_sesgos/main/candidatos.csv"
 
 cipher = MultiSubstitutionCipher()
@@ -172,5 +172,6 @@ def submit():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
 
 
